@@ -7,7 +7,7 @@ using System.Security.Principal;
 using OWASP.WebGoat.NET.App_Code;
 using log4net.Config;
 using System.Diagnostics;
-//
+// fgfg
 namespace OWASP.WebGoat.NET
 {
     public class Global : System.Web.HttpApplication

@@ -2,7 +2,7 @@ using System;
 using OWASP.WebGoat.NET.App_Code.DB;
 using System.IO;
 using System.Web;
-
+//
 namespace OWASP.WebGoat.NET.App_Code
 {
     public class Settings

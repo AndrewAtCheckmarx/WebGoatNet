@@ -1,6 +1,6 @@
 Unassigned:
 
-
+c
 + Entity SQLi
 + NHibernate SQLi
 + Httponly (cookie flag)

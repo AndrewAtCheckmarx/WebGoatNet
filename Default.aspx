@@ -7,7 +7,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="HelpContentPlaceholder" runat="server">
     This is the Welcome Page...
 </asp:Content>
-
+zx\zx
 
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyContentPlaceholder" runat="server">
     <h1 class="title-regular-4 clearfix">Welcome to WebGoat.NET</h1>

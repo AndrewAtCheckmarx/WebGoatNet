@@ -66,7 +66,7 @@ jobs:
           # Provide SCA Password
           sca_password: "ff!R8P2g@n4WgjrEVg6HWIH"
           #params: --config=cx.config 
-          # --bug-tracker=NONE --checkmarx.version=9.0 
+          bug-tracker: "NONE" # --checkmarx.version=9.0 
       
   KICS:     
     runs-on: ubuntu-latest

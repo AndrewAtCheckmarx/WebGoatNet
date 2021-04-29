@@ -45,7 +45,7 @@ jobs:
           # Break build based on Checkmarx findings?
           break_build: false
           # Vulnerability Scanners (sast, sca, ast, cxgo):  
-          scanners: sast #, sca
+          scanners: sast, sca
           # bug_tracker: GITHUBPULL
           # Incremental Scans?
           incremental: true
@@ -65,35 +65,5 @@ jobs:
           sca_username: "ScannerGit"
           # Provide SCA Password
           sca_password: "ff!R8P2g@n4WgjrEVg6HWIH"
-          params: --bug-tracker= "NONE" --checkmarx.project= ${{Env.GITHUB_REPOSITORY}}
-      
-  KICS:     
-    runs-on: ubuntu-latest
-    steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    - name: run kics Scan
-      uses: checkmarx/kics-github-action@v1.0
-      with:
-          path: '.'
-          output_path: 'kics-results.json'
-          
-    - name: display kics results
-      run: |
-          cat kics-results.json 
-    - name: 'Upload Artifact'
-      uses: actions/upload-artifact@v2
-      with:
-        name: kics-results.json
-        path: kics-results.json
-        retention-days: 5
-        
-    - name: Break Build?
-      run: |     
-          TOTAL_SEVERITY_COUNTER=`grep '"totalCounter"':' ' kics-results.json | awk {'print $2'}`
-          export SEVERITY_COUNTER_HIGH=`grep '"HIGH"':' ' kics-results.json | awk {'print $2'} | sed 's/.$//'`
-          SEVERITY_COUNTER_MEDIUM=`grep '"INFO"':' ' kics-results.json | awk {'print $2'} | sed 's/.$//'`
-          SEVERITY_COUNTER_LOW=`grep '"LOW"':' ' kics-results.json | awk {'print $2'} | sed 's/.$//'`
-          SEVERITY_COUNTER_INFO=`grep '"MEDIUM"':' ' kics-results.json | awk {'print $2'} | sed 's/.$//'`
-          echo "TOTAL SEVERITY COUNTER $TOTAL_SEVERITY_COUNTER"
-          if [ "$SEVERITY_COUNTER_HIGH" -ge "1" ];then echo "Please fix all $SEVERITY_COUNTER_HIGH HIGH SEVERITY COUNTERS" && exit 1;fi
+         
+  
